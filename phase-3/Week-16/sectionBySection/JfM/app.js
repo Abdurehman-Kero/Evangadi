@@ -66,6 +66,7 @@ app.get("/create-table", (req, res) => {
   res.send("Table created");
 });
 
+
 app.post("/add-customer", (req, res) => {
   const { name, address, company } = req.body;
 
