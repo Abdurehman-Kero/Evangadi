@@ -1,0 +1,87 @@
+/* Global Reset & Base Styles */
+* {
+  padding: 0;
+  margin: 0;
+  text-align: center;
+}
+
+/* Responsive Image Handling */
+img {
+  width: 100%;
+}
+
+/* Blue Background Utility Class */
+.blueBG {
+  background-color: #075070;
+  color: white;
+}
+
+/* Header Styling */
+.header {
+  font-size: 3rem;
+  padding: 10px 0 15px;
+}
+
+/* Puppy Image Containers - Mobile Layout */
+.puppy{
+  margin: 30px 40px;
+}
+.morePupppies{
+  font-size: 3rem; 
+}
+
+/* Hidden Missing Puppy Box - Mobile */
+.missingPuppy {
+  display: none;
+}
+
+/* Footer Styling */
+footer p {
+  padding: 40px 0 50px;
+  margin-top: 40px;
+  font-size: 30px;
+  font-weight: 600;
+}
+
+/* Tablet/Desktop Layout (7680px+) */
+@media screen and (min-width: 768px) {
+  /* Show Missing Puppy Box */
+  .missingPuppy {
+    display: block;
+    align-content: center;
+    background-color: red; 
+    font-size: 3rem;
+  }
+
+  /* Flex Layout for Section 1 */
+  .section1 img {
+    display: block;
+  }
+  
+  /* Reset Margins for Desktop */
+  .puppy {
+    margin: 0;
+  }
+
+  /* Flex Container Styles */
+  .section1,
+  .puppies {
+    display: flex;
+    justify-content: space-between;
+    margin: 40px 10%;
+  }
+
+  /* Section 1 Widths (3-column layout) */
+  .puppy-1,
+  .puppy-2,
+  .missingPuppy {
+    width: 32%;
+  }
+  
+
+  /* Section 2 Widths (2-column layout) */
+  .puppy-3,
+  .puppy-4 {
+    width: 47%;
+  }
+}

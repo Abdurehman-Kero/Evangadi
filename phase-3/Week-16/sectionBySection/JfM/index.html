@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Customer Registry System</title>
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+  </head>
+
+  <body class="bg-light">
+    <div class="container py-5">
+      <h1 class="text-center mb-4 fw-bold">Customer Registry System</h1>
+      <hr />
+
+      <!-- Navigation Buttons -->
+      <div class="d-flex justify-content-center gap-3 my-4 flex-wrap">
+        <button
+          type="button"
+          class="btn btn-success"
+          onclick="displayForm('new')"
+        >
+          New
+        </button>
+        <button
+          type="button" id="btn-warning"
+          class="btn btn-primary"
+          onclick="displayForm('list')"
+        >
+          List
+        </button>
+        <button
+          type="button"
+          class="btn btn-warning" 
+          onclick="displayForm('edit')"
+        >
+          Edit
+        </button>
+        <button
+          type="button"
+          class="btn btn-danger"
+          onclick="displayForm('delete')"
+        >
+          Delete
+        </button>
+      </div>
+
+      <!-- Add Customer Form -->
+      <section
+        class="card shadow-sm p-4 mx-auto w-75 new"
+        style="display: none"
+      >
+        <h3 class="mb-3">Insert Customer Info</h3>
+        <form id="create-form">
+          <!-- action="http://localhost:3000/add-customer" method="POST"
+ -->
+          <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <input
+              type="text"
+              name="name"
+              id="name"
+              class="form-control"
+              required
+            />
+          </div>
+          <div class="mb-3">
+            <label for="address" class="form-label">Address</label>
+            <input
+              type="text"
+              name="address"
+              id="address"
+              class="form-control"
+              required
+            />
+          </div>
+          <div class="mb-3">
+            <label for="company" class="form-label">Company</label>
+            <input
+              type="text"
+              name="company"
+              id="company"
+              class="form-control"
+              required
+            />
+          </div>
+          <button type="submit" class="btn btn-dark">Add Customer</button>
+        </form>
+      </section>
+
+      <!-- update Customer data -->
+      <section
+        class="card shadow-sm p-4 mx-auto w-75 edit"
+        style="display: none"
+      >
+        <h3 class="mb-3">Update Customer Name</h3>
+        <form id="update-form">
+          <div class="mb-3">
+            <label for="update-id" class="form-label">Customer ID</label>
+            <input
+              type="text"
+              name="id"
+              id="update-id"
+              class="form-control"
+              required
+            />
+          </div>
+          <div class="mb-3">
+            <label for="updatedName" class="form-label">New Name</label>
+            <input
+              type="text"
+              name="updatedName"
+              id="updatedName"
+              class="form-control"
+              required
+            />
+          </div>
+          <button type="submit" class="btn btn-dark">
+            Submit Updated Name
+          </button>
+        </form>
+      </section>
+
+      <!-- Delete Customer Form -->
+      <section
+        class="card shadow-sm p-4 mx-auto w-75 delete"
+        style="display: none"
+      >
+        <h3 class="mb-3">Delete Customer</h3>
+        <form id="delete-form">
+          <div class="mb-3">
+            <label for="delete-id" class="form-label">Customer ID</label>
+            <input
+              type="text"
+              name="id"
+              id="delete-id"
+              class="form-control"
+              required
+            />
+          </div>
+          <button type="submit" class="btn btn-dark">Delete User</button>
+        </form>
+      </section>
+
+      <!-- Customer List -->
+      <section id="data" class="list my-4 text-center" style="display: none">
+        <div class="card p-4 shadow-sm">
+          <h3 class="text-muted mb-0">No registered customers yet.</h3>
+        </div>
+      </section>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="./script.js"></script>
+  </body>
+</html>

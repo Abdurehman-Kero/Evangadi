@@ -1,0 +1,1045 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Abdu's-Porfolio</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Bootstrap Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <!-- AOS CSS -->
+    <link rel="icon" type="image/x-icon" href="./images/favicon.png" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+    <style>
+      :root {
+        --primary-color: #64ffda;
+        --secondary-color: #070c17;
+        --text-color: #ffffff;
+        --bg-color: rgb(7, 12, 23);
+        --card-bg: #1e2a44;
+      }
+
+      [data-theme="light"] {
+        --primary-color: #070c17;
+        --secondary-color: #ffffff;
+        --text-color: #070c17;
+        --bg-color: #ffffff;
+        --card-bg: #f8f9fa;
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        transition: all 0.3s ease;
+        margin: 0;
+        padding: 0;
+      }
+
+      .color-toggle {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 1000;
+      }
+
+      #theme-toggle {
+        background: var(--card-bg);
+        border: 1px solid var(--primary-color);
+        color: var(--primary-color);
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .header {
+        background-color: rgba(7, 12, 23, 0.9);
+        padding: 20px 0;
+        position: fixed;
+        width: 100%;
+        z-index: 999;
+        transition: all 0.3s ease;
+      }
+
+      [data-theme="light"] .header {
+        background-color: rgba(255, 255, 255, 0.9);
+      }
+
+      .container {
+        width: 100%;
+        padding-right: 15px;
+        padding-left: 15px;
+        margin-right: auto;
+        margin-left: auto;
+      }
+
+      @media (min-width: 576px) {
+        .container {
+          max-width: 540px;
+        }
+      }
+
+      @media (min-width: 768px) {
+        .container {
+          max-width: 720px;
+        }
+      }
+
+      @media (min-width: 992px) {
+        .container {
+          max-width: 960px;
+        }
+      }
+
+      @media (min-width: 1200px) {
+        .container {
+          max-width: 1140px;
+        }
+      }
+
+      .d-flex {
+        display: flex !important;
+      }
+
+      .align-items-center {
+        align-items: center !important;
+      }
+
+      .justify-content-between {
+        justify-content: space-between !important;
+      }
+
+      .logo span {
+        color: var(--primary-color);
+        font-weight: 700;
+        font-size: 1.5rem;
+      }
+
+      .navmenu ul {
+        display: flex;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        gap: 2rem;
+      }
+
+      .navmenu a {
+        color: var(--text-color);
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.3s ease;
+        position: relative;
+      }
+
+      .navmenu a:hover,
+      .navmenu a.active {
+        color: var(--primary-color);
+      }
+
+      .navmenu a::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: -5px;
+        left: 0;
+        background-color: var(--primary-color);
+        transition: width 0.3s ease;
+      }
+
+      .navmenu a:hover::after,
+      .navmenu a.active::after {
+        width: 100%;
+      }
+
+      .section {
+        padding: 100px 0;
+      }
+
+      .hero {
+        min-height: 100vh;
+        display: flex;
+        padding-top: 100px;
+        align-items: center;
+        background-color: #22262b;
+      }
+
+      .text-center {
+        text-align: center !important;
+      }
+
+      .name-container {
+        overflow: hidden;
+        margin-bottom: 1.5rem;
+      }
+
+      .name {
+        font-size: clamp(2rem, 5vw, 4rem);
+        font-weight: 700;
+        color: var(--primary-color);
+        margin-bottom: 0.5rem;
+        display: inline-block;
+        transform: translateX(-100%);
+        animation: slideIn 1s forwards;
+      }
+
+      .mern-badge {
+        background-color: rgba(100, 255, 218, 0.1);
+        color: var(--primary-color);
+        padding: 0.3rem 1rem;
+        border-radius: 20px;
+        font-size: 1rem;
+        display: inline-block;
+        margin-bottom: 1rem;
+        border: 1px solid var(--primary-color);
+        transform: translateX(-100%);
+        animation: slideIn 1s forwards 0.2s;
+      }
+
+      .typewriter {
+        background-image: url(./images/portfolio/hero-section-animation.gif);
+        height: 440px;
+        background-repeat: no-repeat;
+        background-size: initial;
+        background-position: bottom;
+        margin: 1.5rem 0;
+      }
+
+      .typewriter h2 {
+        font-size: 1.8rem;
+        border-right: 3px solid var(--primary-color);
+        white-space: nowrap;
+        overflow: hidden;
+        margin: 0 auto;
+        display: inline-block;
+        animation: blink-caret 0.75s step-end infinite;
+      }
+
+      .subtitle {
+        font-size: 1.2rem;
+        max-width: 600px;
+        margin: 0 auto 2rem;
+        opacity: 0.9;
+        color: var(--text-color);
+      }
+
+      .buttons {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        margin-top: 2rem;
+      }
+
+      .btn {
+        padding: 0.8rem 1.8rem;
+        border-radius: 5px;
+        font-weight: 500;
+        text-decoration: none;
+        transition: all 0.3s ease;
+      }
+
+      .btn-primary {
+        background-color: var(--primary-color);
+        color: var(--secondary-color);
+        border: 1px solid var(--primary-color);
+      }
+
+      .btn-primary:hover {
+        background-color: transparent;
+        color: var(--primary-color);
+      }
+
+      .btn-secondary {
+        background-color: transparent;
+        color: var(--primary-color);
+        border: 1px solid var(--primary-color);
+      }
+
+      .btn-secondary:hover {
+        background-color: var(--primary-color);
+        color: var(--secondary-color);
+      }
+
+      .tech-stack {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.8rem;
+        margin-top: 2rem;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .tech-item {
+        background-color: rgba(100, 255, 218, 0.1);
+        color: var(--primary-color);
+        padding: 0.5rem 1rem;
+        border-radius: 20px;
+        font-size: 0.9rem;
+        border: 1px solid var(--primary-color);
+      }
+
+      @keyframes slideIn {
+        to {
+          transform: translateX(0);
+        }
+      }
+
+      @keyframes blink-caret {
+        from,
+        to {
+          border-color: transparent;
+        }
+        50% {
+          border-color: var(--primary-color);
+        }
+      }
+
+      /* About Section */
+      .about .row {
+        align-items: center;
+      }
+
+      .about img {
+        border-radius: 10px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        max-width: 100%;
+        height: auto;
+      }
+
+      /* Skills Section */
+      .skill-box {
+        margin-bottom: 2rem;
+      }
+
+      .progress {
+        height: 10px;
+        background-color: rgba(100, 255, 218, 0.1);
+        border-radius: 5px;
+        margin-top: 0.5rem;
+      }
+
+      .progress-bar {
+        background-color: var(--primary-color);
+        border-radius: 5px;
+      }
+
+      /* Portfolio Section */
+      .portfolio-card {
+        background-color: var(--card-bg);
+        border-radius: 10px;
+        padding: 20px;
+        margin-bottom: 30px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+        height: 100%;
+      }
+
+      .portfolio-card:hover {
+        transform: translateY(-10px);
+      }
+
+      .portfolio-card img {
+        border-radius: 5px;
+        margin-bottom: 1rem;
+        width: 100%;
+        height: auto;
+      }
+
+      /* Contact Section */
+      .contact-form {
+        background-color: var(--card-bg);
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        height: 100%;
+      }
+
+      .form-control {
+        background-color: rgba(100, 255, 218, 0.1);
+        border: 1px solid var(--primary-color);
+        color: var(--text-color);
+        margin-bottom: 1rem;
+        width: 100%;
+        padding: 0.375rem 0.75rem;
+        font-size: 1rem;
+        line-height: 1.5;
+        border-radius: 0.25rem;
+        transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+      }
+
+      .form-control:focus {
+        background-color: rgba(100, 255, 218, 0.2);
+        color: var(--text-color);
+        border-color: var(--primary-color);
+        box-shadow: 0 0 0 0.25rem rgba(100, 255, 218, 0.25);
+        outline: 0;
+      }
+
+      textarea.form-control {
+        min-height: calc(1.5em + 0.75rem + 2px);
+      }
+
+      /* Footer */
+      .footer {
+        background-color: var(--card-bg);
+        padding: 30px 0;
+        text-align: center;
+      }
+
+      .social-links a {
+        color: var(--text-color);
+        font-size: 1.5rem;
+        margin: 0 10px;
+        transition: color 0.3s ease;
+      }
+
+      .social-links a:hover {
+        color: var(--primary-color);
+      }
+
+      /* Scroll to top button */
+      .scroll-top {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        width: 40px;
+        height: 40px;
+        background-color: var(--primary-color);
+        color: var(--secondary-color);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        z-index: 999;
+      }
+
+      .scroll-top.active {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      /* Responsive adjustments */
+      @media (max-width: 768px) {
+        .buttons {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .btn {
+          width: 100%;
+          max-width: 200px;
+          text-align: center;
+        }
+
+        .navmenu ul {
+          flex-direction: column;
+          position: fixed;
+          top: 70px;
+          right: -100%;
+          width: 60%;
+          height: calc(100vh - 70px);
+          background-color: var(--card-bg);
+          align-items: center;
+          justify-content: center;
+          gap: 2rem;
+          transition: right 0.3s ease;
+        }
+
+        .navmenu ul.show {
+          right: 0;
+        }
+
+        .mobile-nav-toggle {
+          display: block !important;
+          font-size: 1.5rem;
+          cursor: pointer;
+          color: var(--text-color);
+        }
+      }
+      .p1img img {
+        margin-block: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="color-toggle me-4 me-md-0">
+        <button id="theme-toggle">
+          <i class="bi bi-moon-fill"></i>
+          <i class="bi bi-sun-fill"></i>
+        </button>
+      </div>
+      <header id="header" class="header">
+        <div class="container">
+          <div class="d-flex align-items-center justify-content-between">
+            <a href="index.html" class="logo d-flex align-items-center">
+              <span>Abdu kr</span>
+            </a>
+            <nav id="navmenu" class="navmenu">
+              <ul>
+                <li><a href="#hero" class="active">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#contact">Contact</a></li>
+              </ul>
+              <i class="mobile-nav-toggle d-md-none bi bi-list"></i>
+            </nav>
+          </div>
+        </div>
+      </header>
+      <main>
+        <section id="hero" class="container-fluid hero">
+          <div class="container text-center">
+            <h1 class="name" id="main-name"></h1>
+            <div class="name-container" data-aos="fade-up">
+              <div class="mern-badge">Full-stack Application Developer</div>
+            </div>
+            <div class="typewriter" data-aos="fade-up" data-aos-delay="150">
+              <h2 id="dynamic-text"></h2>
+              <p class="subtitle" data-aos="fade-up" data-aos-delay="400">
+                Architecting scalable digital solutions
+              </p>
+            </div>
+          </div>
+        </section>
+        <section class="container-fluid">
+          <div class="buttons" data-aos="fade-up" data-aos-delay="600">
+            <a href="#contact" class="btn btn-primary">Let's Talk</a>
+            <a href="#" class="btn btn-secondary">Download CV</a>
+          </div>
+          <div
+            class="tech-stack"
+            id="tech-stack"
+            data-aos="fade-up"
+            data-aos-delay="800"
+          ></div>
+        </section>
+        <section id="about" class="container-fluid about section">
+          <div class="container section-title" data-aos="fade-up">
+            <h2>About Me</h2>
+          </div>
+          <div class="container">
+            <div class="row align-items-center">
+              <div class="col-lg-6 p1img" data-aos="fade-right">
+                <img
+                  src="./images/profile/pic3.jpg"
+                  alt="Abdurehman Kero"
+                  class="img-fluid rounded"
+                />
+              </div>
+              <div class="col-lg-6 container-fluid" data-aos="fade-left">
+                <h3>MERN Stack Developer</h3>
+                <p>
+                  I specialize in building modern web applications using
+                  MongoDB, Express.js, React, and Node.js. As a 3rd-year
+                  Electrical and Computer Engineering student at Addis Ababa
+                  University, I combine technical expertise with creative
+                  problem-solving to deliver exceptional digital experiences.
+                </p>
+                <ul class="list-unstyled">
+                  <li><strong>Name:</strong> Abdurehman Kero</li>
+                  <li><strong>Email:</strong> keroabdurehman@gmail.com</li>
+                  <li><strong>Phone:</strong> +251982310974</li>
+                  <li>
+                    <strong>Location:</strong> Arada, Addis Ababa, Ethiopia
+                  </li>
+                </ul>
+                <div class="mt-4">
+                  <a href="#" class="btn btn-primary me-2">Download CV</a>
+                  <a href="#contact" class="btn btn-secondary">Hire Me</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section id="skills " class="container-fluid skills section">
+          <div class="container section-title" data-aos="fade-up">
+            <h2>Technical Skills</h2>
+          </div>
+          <div class="container">
+            <div class="row">
+              <div
+                class="col-md-6 col-lg-4 skill-box"
+                data-aos="fade-up"
+                data-aos-delay="100"
+              >
+                <h4><i class="bi bi-filetype-html me-2"></i>HTML5</h4>
+                <p>Semantic and accessible structures</p>
+                <div class="progress">
+                  <div
+                    class="progress-bar"
+                    role="progressbar"
+                    style="width: 90%"
+                  ></div>
+                </div>
+              </div>
+              <div
+                class="col-md-6 col-lg-4 skill-box"
+                data-aos="fade-up"
+                data-aos-delay="200"
+              >
+                <h4><i class="bi bi-filetype-css me-2"></i>CSS3</h4>
+                <p>Modern styling and responsive design</p>
+                <div class="progress">
+                  <div
+                    class="progress-bar"
+                    role="progressbar"
+                    style="width: 85%"
+                  ></div>
+                </div>
+              </div>
+              <div
+                class="col-md-6 col-lg-4 skill-box"
+                data-aos="fade-up"
+                data-aos-delay="300"
+              >
+                <h4><i class="bi bi-filetype-js me-2"></i>JavaScript</h4>
+                <p>ES6+ and modern frameworks</p>
+                <div class="progress">
+                  <div
+                    class="progress-bar"
+                    role="progressbar"
+                    style="width: 80%"
+                  ></div>
+                </div>
+              </div>
+              <div
+                class="col-md-6 col-lg-4 skill-box"
+                data-aos="fade-up"
+                data-aos-delay="400"
+              >
+                <h4><i class="bi bi-bootstrap me-2"></i>Bootstrap</h4>
+                <p>Responsive front-end development</p>
+                <div class="progress">
+                  <div
+                    class="progress-bar"
+                    role="progressbar"
+                    style="width: 85%"
+                  ></div>
+                </div>
+              </div>
+              <div
+                class="col-md-6 col-lg-4 skill-box"
+                data-aos="fade-up"
+                data-aos-delay="500"
+              >
+                <h4><i class="bi bi-filetype-jsx me-2"></i>React</h4>
+                <p>Component-based architecture</p>
+                <div class="progress">
+                  <div
+                    class="progress-bar"
+                    role="progressbar"
+                    style="width: 80%"
+                  ></div>
+                </div>
+              </div>
+              <div
+                class="col-md-6 col-lg-4 skill-box"
+                data-aos="fade-up"
+                data-aos-delay="600"
+              >
+                <h4><i class="bi bi-filetype-json me-2"></i>Node.js</h4>
+                <p>Server-side JavaScript</p>
+                <div class="progress">
+                  <div
+                    class="progress-bar"
+                    role="progressbar"
+                    style="width: 75%"
+                  ></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section id="portfolio" class="container-fluid portfolio section">
+          <div class="container section-title" data-aos="fade-up">
+            <h2>My Projects</h2>
+          </div>
+          <div class="container">
+            <div class="row">
+              <div
+                class="col-md-6 col-lg-4"
+                data-aos="fade-up"
+                data-aos-delay="200"
+              >
+                <div class="portfolio-card">
+                  <a
+                    href="https://ubiquitous-gumption-2d0403.netlify.app/"
+                    target="_blank"
+                    ><img
+                      src="/images/portfolio/img 2.jpg"
+                      alt="Apple Website"
+                      class="img-fluid"
+                  /></a>
+                  <h4>Apple Website Replica with Bootstrap</h4>
+                  <p>
+                    Developed with Bootstrap landing page inspired by Apple's
+                    design principles. The project includes smooth scrolling
+                    effects and fully responsive layout.
+                  </p>
+                  <a
+                    href="https://ubiquitous-gumption-2d0403.netlify.app/"
+                    class="btn btn-sm btn-primary mt-2"
+                    target="_blank"
+                    >View Project</a
+                  >
+                </div>
+              </div>
+              <div
+                class="col-md-6 col-lg-4"
+                data-aos="fade-up"
+                data-aos-delay="100"
+              >
+                <div class="portfolio-card">
+                  <img
+                    src="./images/portfolio/img 1.jpg"
+                    alt="E-commerce Platform"
+                    class="img-fluid"
+                  />
+                  <h4>Amazon Clone</h4>
+                  <p>
+                    Amazon website Replica built with React and a custom
+                    backend, featuring user authentication. Designed with an
+                    emphasis on performance, scalability, and a smooth user
+                    experience
+                  </p>
+                  <a href="#" class="btn btn-sm btn-primary mt-2"
+                    >View Project</a
+                  >
+                </div>
+              </div>
+
+              <div
+                class="col-md-6 col-lg-4"
+                data-aos="fade-up"
+                data-aos-delay="300"
+              >
+                <div class="portfolio-card">
+                  <img
+                    src="/images/portfolio/img 4.jpg"
+                    alt="Social Media Dashboard"
+                    class="img-fluid"
+                  />
+                  <h4>Netflix Website</h4>
+                  <p>
+                    A Netflix clone developed using React offering real-time
+                    data fetching and a fully responsive design for an enhanced
+                    viewing experience across all devices
+                  </p>
+                  <a href="#" class="btn btn-sm btn-primary mt-2"
+                    >View Project</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section id="contact" class="container-fluid contact section">
+          <div class="container section-title" data-aos="fade-up">
+            <h2>Get In Touch</h2>
+          </div>
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-6" data-aos="fade-right">
+                <div class="contact-info">
+                  <h3>Contact Information</h3>
+                  <p>
+                    Feel free to reach out for collaborations or just to say
+                    hello!
+                  </p>
+                  <ul class="list-unstyled">
+                    <li class="mb-3">
+                      <i class="bi bi-envelope me-2"></i>
+                      keroabdurehman@gmail.com
+                    </li>
+                    <li class="mb-3">
+                      <i class="bi bi-phone me-2"></i> +251982310974
+                    </li>
+                    <li class="mb-3">
+                      <i class="bi bi-geo-alt me-2"></i> Arada, Addis Ababa,
+                      Ethiopia
+                    </li>
+                    <li class="mb-3">
+                      <i class="bi bi-github me-2"></i>
+                      <a
+                        href="https://github.com/Abdurehman-Kero"
+                        target="_blank"
+                        >github.com/Abdurehman-Kero</a
+                      >
+                    </li>
+                    <li>
+                      <i class="bi bi-linkedin me-2"></i
+                      ><a
+                        href="https://linkedin.com/in/abdurehman-kero-5b317228b"
+                        target="_blank"
+                        >linkedin.com/in/abdurehman-kero</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-lg-6" data-aos="fade-left">
+                <div class="contact-form">
+                  <h3>Send Me a Message</h3>
+                  <form>
+                    <div class="mb-3">
+                      <input
+                        type="text"
+                        class="form-control"
+                        placeholder="Your Name"
+                        required
+                      />
+                    </div>
+                    <div class="mb-3">
+                      <input
+                        type="email"
+                        class="form-control"
+                        placeholder="Your Email"
+                        required
+                      />
+                    </div>
+                    <div class="mb-3">
+                      <input
+                        type="text"
+                        class="form-control"
+                        placeholder="Subject"
+                      />
+                    </div>
+                    <div class="mb-3">
+                      <textarea
+                        class="form-control"
+                        rows="5"
+                        placeholder="Your Message"
+                        required
+                      ></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">
+                      Send Message
+                    </button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+      <footer class="footer">
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-md-6 text-center text-md-start">
+              <p class="mb-0">© 2025 Abdurehman. All rights reserved.</p>
+            </div>
+            <div class="col-md-6 text-center text-md-end">
+              <div class="social-links">
+                <a href="https://github.com/Abdurehman-Kero" target="_blank"
+                  ><i class="bi bi-github"></i
+                ></a>
+                <a
+                  href="https://linkedin.com/in/abdurehman-kero-5b317228b"
+                  target="_blank"
+                  ><i class="bi bi-linkedin"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+      <a href="#" class="scroll-top"><i class="bi bi-arrow-up"></i></a>
+    </div>
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      // Initialize AOS animation
+      AOS.init({
+        duration: 800,
+        easing: "ease-in-out",
+        once: true,
+      });
+
+      // Theme toggle functionality
+      const themeToggle = document.getElementById("theme-toggle");
+      const body = document.body;
+
+      // Check for saved theme preference
+      const currentTheme = localStorage.getItem("theme");
+      if (currentTheme) {
+        body.setAttribute("data-theme", currentTheme);
+      }
+
+      themeToggle.addEventListener("click", () => {
+        if (body.getAttribute("data-theme") === "light") {
+          body.setAttribute("data-theme", "dark");
+          localStorage.setItem("theme", "dark");
+        } else {
+          body.setAttribute("data-theme", "light");
+          localStorage.setItem("theme", "light");
+        }
+      });
+
+      // Mobile menu toggle
+      const mobileNavToggle = document.querySelector(".mobile-nav-toggle");
+      const navMenu = document.querySelector(".navmenu ul");
+
+      mobileNavToggle.addEventListener("click", () => {
+        navMenu.classList.toggle("show");
+      });
+
+      // Close mobile menu when clicking a link
+      document.querySelectorAll(".navmenu a").forEach((link) => {
+        link.addEventListener("click", () => {
+          navMenu.classList.remove("show");
+        });
+      });
+
+      // Scroll to top button
+      const scrollTop = document.querySelector(".scroll-top");
+      window.addEventListener("scroll", () => {
+        if (window.pageYOffset > 300) {
+          scrollTop.classList.add("active");
+        } else {
+          scrollTop.classList.remove("active");
+        }
+      });
+
+      scrollTop.addEventListener("click", (e) => {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+
+      // Smooth scrolling for navigation links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+
+          const targetId = this.getAttribute("href");
+          if (targetId === "#") return;
+
+          const targetElement = document.querySelector(targetId);
+          if (targetElement) {
+            window.scrollTo({
+              top: targetElement.offsetTop - 70,
+              behavior: "smooth",
+            });
+          }
+        });
+      });
+
+      // Typewriter effect
+      const messages = [
+        "I build modern web applications",
+        "I create responsive user interfaces",
+        "I develop scalable backend systems",
+        "I craft exceptional digital experiences",
+      ];
+      const dynamicText = document.getElementById("dynamic-text");
+      let messageIndex = 0;
+      let charIndex = 0;
+      let isDeleting = false;
+      let typingSpeed = 150;
+
+      function typeWriter() {
+        const currentText = messages[messageIndex];
+
+        if (isDeleting) {
+          dynamicText.textContent = currentText.substring(0, charIndex - 1);
+          charIndex--;
+          typingSpeed = 50;
+        } else {
+          dynamicText.textContent = currentText.substring(0, charIndex + 1);
+          charIndex++;
+          typingSpeed = 150;
+        }
+
+        if (!isDeleting && charIndex === currentText.length) {
+          isDeleting = true;
+          typingSpeed = 2000;
+        } else if (isDeleting && charIndex === 0) {
+          isDeleting = false;
+          messageIndex = (messageIndex + 1) % messages.length;
+          typingSpeed = 500;
+        }
+
+        setTimeout(typeWriter, typingSpeed);
+      }
+
+      // Name animation (runs once on load)
+      const name = "Hello , I am \nAbdurehman Kero";
+      const nameElement = document.getElementById("main-name");
+      let nameCharIndex = 0;
+
+      function typeName() {
+        if (nameElement && nameCharIndex < name.length) {
+          const currentChar = name.charAt(nameCharIndex);
+
+          // Insert animated emoji/Lottie after "Hello,"
+          if (nameCharIndex === 5) {
+            // Position after "Hello,"
+            nameElement.innerHTML += currentChar; // Add the comma
+            nameElement.innerHTML += " 👋"; // Animated emoji (or Lottie)
+          }
+          // Handle line breaks
+          else if (currentChar === "\n") {
+            nameElement.innerHTML += "<br>";
+          }
+          // Normal typing
+          else {
+            nameElement.innerHTML += currentChar;
+          }
+
+          nameCharIndex++;
+          setTimeout(typeName, 150);
+        }
+      }
+
+      // Start typing effect
+      typeName();
+
+      // Start animations only once on page load
+      window.addEventListener("load", () => {
+        typeName();
+        setTimeout(typeWriter, 2000);
+
+        // Initialize tech stack
+        const technologies = [
+          "React",
+          "Express.js",
+          "MongoDB",
+          "Node.js",
+          "TypeScript",
+          "Java",
+          "python",
+          "Next.js",
+        ];
+        const techStack = document.getElementById("tech-stack");
+
+        technologies.forEach((tech) => {
+          const techItem = document.createElement("span");
+          techItem.className = "tech-item";
+          techItem.textContent = tech;
+          techStack.appendChild(techItem);
+        });
+      });
+    </script>
+  </body>
+</html>

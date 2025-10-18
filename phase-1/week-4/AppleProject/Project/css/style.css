@@ -1,0 +1,348 @@
+/* ======================== */
+/* Global Resets & Base Styles */
+/* ======================== */
+ 
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-size: 20px;
+  font-family: "Montserrat", sans-serif;
+}
+
+img {
+  max-width: 100%;
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+/* ===== End Global Styles ===== */
+
+
+/* ======================== */
+/* Header Section Start */
+/* ======================== */
+.header-wrapper {
+  background: black;
+  color: #fff;
+  font-weight: 200;
+  font-size: 0.75em;
+}
+
+header ul {
+  display: flex;
+  justify-content: space-between;
+}
+
+.internal-Wrapper {
+  width: 980px;
+  margin: 0 auto;
+}
+
+header img {
+  width: 20px;
+}
+
+header ul a {
+  color: #fff;
+}
+
+.header-wrapper .internal-Wrapper ul li {
+  padding: 14px 0;
+  /* align-items: center; */
+}
+
+.header-wrapper .internal-Wrapper ul li a {
+  opacity: 0.6;
+}
+
+.header-wrapper .internal-Wrapper li a:hover {
+  opacity: 1;
+}
+/* ===== Header Section End ===== */
+
+
+/* ======================== */
+/* Main Product Section Start */
+/* ======================== */
+.main-wrapper {
+  background: #fafafa;
+  text-align: center;
+  padding: 25px 0;
+}
+
+.product-title {
+  font-weight: bold;
+  font-size: 50px;
+}
+
+.description {
+  font-size: 45px;
+}
+
+.links-wrapper {
+  padding: 15px 0;
+}
+
+.buy {
+  padding-left: 15px;
+}
+
+.links-wrapper ul a {
+  color: blue;
+}
+
+.links-wrapper a:after {
+  font-family: "FontAwesome";
+  font-weight: 900;
+  content: "\f105";
+  padding-left: 10px;
+}
+
+.links-wrapper a:hover {
+  color: black;
+}
+
+.links-wrapper ul li {
+  display: inline-block;
+}
+/* ===== Main Product Section End ===== */
+
+
+/* ======================== */
+/* Common Wrapper Section Start */
+/* ========================*/
+.commonWrapper {
+  height: 580px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+  padding: 65px 25px;
+}
+/* ===== Common Wrapper Section End ===== */
+
+
+/* ======================== */
+/* Second Wrapper Section Start */
+/* ======================== */
+.second-wrapper {
+  background-image: url(../images/home/iphone11-pro-bg.jpg);
+  color: white;
+}
+/* ===== Second Wrapper Section End ===== */
+
+
+/* ======================== */
+/* Third Wrapper Section Start */
+/* ======================== */
+.third-wrapper {
+  background-image: url(../images/home/iphone11-bg.jpg);
+}
+/* ===== Third Wrapper Section End ===== */
+
+
+/* ======================== */
+/* Typography Section Start */
+/* ======================== */
+.type {
+  font-size: 50px;
+  font-weight: bold;
+}
+
+.description {
+  font-size: 26px;
+  padding: 10px 0;
+}
+.price {
+  color: #86868b;
+  font-size: 17px;
+}
+ /* ===== Typography Section End ===== */
+
+
+/* ======================== */
+/* Fourth Wrapper Section Start */
+/* ======================== */
+.fourth-wrapper .left-side-wrapper {
+  background-image: url(../images/home/watch-series-5.jpg);
+}
+
+.fourth-wrapper .right-side-wrapper {
+  background-image: url(../images/home/apple-card.jpg);
+}
+
+.left-side-wrapper,
+.right-side-wrapper {
+  width: 48.5%;
+  margin: 1% 0.5% 0% 1%;
+  padding-top: 54px;
+}
+.fourth-wrapper {
+  display: flex;
+}
+/* ===== Fourth Wrapper Section End ===== */
+
+
+/* ======================== */
+/* Fifth Wrapper Section Start */
+/* ======================== */
+
+.fifth-wrapper .left-side-wrapper {
+  background-image: url(../images/home/apple-tv-background.jpg);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.fifth-wrapper .right-side-wrapper {
+  background-image: url(../images/home/air-pods.jpg);
+  color: white;
+  background-color: black;
+  background-size: initial;
+}
+.fifth-wrapper {
+  display: flex;
+}
+/* Watch More Section Start */
+ 
+.watch-more-wrapper a {
+  color: blue;
+  font-size: 0.85em;
+}
+
+.watch-more-wrapper a:after {
+  font-family: "FontAwesome";
+  font-weight: 900;
+  content: "\f144";
+  color: blue;
+  padding-left: 15px;
+}
+/* ===== Watch More Section End ===== */
+
+/* ===== Fifth Wrapper Section End ===== */
+ 
+/* ======================== */
+/* Sixth Wrapper Section Start */
+/* ======================== */
+
+.sixth-wrapper .left-side-wrapper {
+  background-image: url(../images/home/macbook-pro.jpg);
+    background-size: initial;
+    background-color: #fafafa;
+    background-position: bottom;
+}
+
+.sixth-wrapper .right-side-wrapper {
+  background-image: url(../images/home/new-ipad.jpg);
+}
+.sixth-wrapper {
+  display: flex;
+}
+/* ===== Sixth Wrapper Section End ===== */
+/* ======================== */
+ 
+/* ======================== */
+/* Footer Section Start */
+/* ======================== */
+.bottom-wrapper {
+  background-color: #f5f5f7;
+}
+.footer-wrapper {
+  padding: 20px;
+  color: #1d1d1f;
+  font-size: 0.65em;
+  width: 100%;
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.upper-text-container {
+  border-bottom: 1px solid #d2d2d7;
+  color: #86868b;
+  padding: 17px 0 20px;
+}
+
+.col1, .col2, .col3, .col4, .col5 {
+  width: 20%;
+}
+
+.footer-links-wrapper {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+
+.footer-links-wrapper a:hover {
+  text-decoration: underline;
+}
+
+.footer-wrapper ul li {
+  padding: 5px 0;
+  font-size: 0.9em;
+}
+
+.footer-links-wrapper li a {
+  color: #86868b;
+}
+ 
+/* ======================== */
+.my-apple-wrapper {
+  border-bottom: 1px solid #d2d2d7;
+  padding: 40px 0 10px;
+  margin-bottom: 10px;
+}
+
+.my-apple-wrapper a {
+  text-decoration: underline;
+}
+
+.copyright-wrapper {
+  justify-content: space-between;
+  margin: 30px auto;
+}
+
+.copyright-wrapper a {
+  color: #86868b;
+}
+
+.copyright-wrapper a:hover {
+  text-decoration: underline;
+}
+/* ======================== */
+.policy {
+  padding: 0 10px 0 50px;
+  border-right: 1px solid #d2d2d7;
+}
+
+.terms,
+.sales,
+.legal {
+  padding-inline: 5px;
+  border-right: 0.1px solid #86868b;
+}
+
+.map {
+  padding: 0 50px 0 5px;
+}
+.footer-country,
+.flag-wrapper,
+.footer-country-name {
+  display: inline-block;
+}
+
+.flag-wrapper {
+  vertical-align: center;
+}
+
+.footer-country-name {
+  vertical-align: top;
+}
+/* ===== Footer Section End ===== */
