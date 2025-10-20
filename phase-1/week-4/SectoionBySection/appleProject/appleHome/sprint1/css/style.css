@@ -1,0 +1,28 @@
+ * {
+    padding: 0;
+    margin:0;
+ }
+ header{
+    background-color: black;
+    padding: 10px;
+ }
+ a{
+   color: white; 
+ }
+ header a {
+    text-decoration: none;
+    color: white;
+ }
+  .container{
+    width: 680px;
+    margin: 0 auto;
+ }
+ header ul {
+    display: flex;
+    justify-content: space-between; 
+ }
+ header ul li img {
+    width: 18px;
+
+ }
+ 

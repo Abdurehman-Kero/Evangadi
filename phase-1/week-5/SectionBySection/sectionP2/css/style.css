@@ -1,0 +1,60 @@
+ * {
+    margin: 0;
+    padding: 0;
+ }
+ .center{
+    text-align: center;
+    color: yellow;
+    background-color: blue;
+ }
+ .para-container p {
+    margin: 2%;
+    
+ }
+ .image1 {
+  background-image: url(../images/puppy-1.jpg);
+  
+ }
+ .image2{
+    background-image: url(../images/puppy-2.jpg);
+ }
+ .images{
+    height: 310px;
+  background-size: cover;
+  width: 308px;
+  margin: 2% auto;
+ }
+ /* Media\ query: 1st media query */
+ @media (min-width:700px){
+   .para-container{
+      display: flex;
+   }
+   .p2{
+      display: none;
+   }
+   .all-image   {
+      width: 650px;
+      margin: 0 auto;
+      display: flex;
+   }
+   .image2{
+      background-image: url(../images/image.png);
+   }
+ }
+ /* Media query: 2nd media query */
+ @media (min-width: 1000px){
+   .p2{
+      display: block;
+   }
+  .para-container p{
+   background-color: green;
+   color: white;
+    }
+    .para-container{
+      width: 950px;
+      margin: 0 auto;
+    }
+   .all-image{
+      width: 950px;
+   }
+ }

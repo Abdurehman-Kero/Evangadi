@@ -1,0 +1,74 @@
+* {
+  margin: 0; /* Removes default margin */
+  padding: 0; /* Removes default padding */
+}
+body {
+  font-family: Arial, Helvetica, sans-serif; /* Sets font family */
+}
+img{
+  width: 100%;
+}
+.myheader {
+  background-color: #195774; /* Sets header background color */
+  padding: 20px 0px; /* Vertical padding */
+  text-align: center; /* Centers text */
+  font-size: 40px; /* Large text size */
+  color: white; /* White text */
+}
+.banner {
+  margin-bottom: 40px; /* Space below banner */
+}
+.middleSection {
+  margin: auto; /* Center section */
+  width: 82%; /* Section width */
+  max-width: 1120px;
+}
+.puppy1,
+.missingPuppy,
+.puppy2 {
+  width: 32%; /* Each column takes one-third space */
+}
+.puppies {
+  display: flex; /* Aligns puppies side by side */
+  justify-content: space-between;
+  width: 100%; /* Full width */
+}
+.puppies img{
+    height: 100%;
+    object-fit: cover;
+}
+.missingPuppy {
+
+  background-color: #f04d65; /* Red background */
+  align-content: center;  /* to center the content horizontally */
+}
+
+.missingPuppy .puppyWraper {
+  text-align: center;
+  font-size: 30px;
+}
+.puppies img {
+  display: block; /* Removes image spacing below */
+}
+.morePuppy {
+  text-align: center; /* Center heading */
+  font-size: 40px; /* Large heading */
+  padding: 25px; /* Padding around heading */
+  margin: 15px auto;
+}
+.morePuppy1, .morePuppy2 {
+  width: 45%; /* Width of image block */
+}
+.two-puppy {
+  display: flex; /* Aligns two images side by side */
+  justify-content: space-between;
+  width: 100%; /* Full width */
+}
+.footers {
+  padding: 20px 0 30px; /* Vertical padding */
+  background-color: #195774; /* Background color */
+  margin-top: 40px; /* Space above footer */
+  font-weight: 600; /* Bold text */
+  font-size: 30px; /* Footer text size */
+  padding: 40px 0 50px ; /* Padding around content */
+}
