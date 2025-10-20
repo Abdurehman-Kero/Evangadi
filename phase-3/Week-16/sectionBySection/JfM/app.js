@@ -59,6 +59,7 @@ app.get("/create-table", (req, res) => {
   db.query(address, (err) => {
     if (err) console.log(err);
   });
+  
   db.query(company, (err) => {
     if (err) console.log(err);
   });
