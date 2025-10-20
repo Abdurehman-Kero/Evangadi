@@ -59,12 +59,13 @@ app.get("/create-table", (req, res) => {
   db.query(address, (err) => {
     if (err) console.log(err);
   });
-  
+
   db.query(company, (err) => {
     if (err) console.log(err);
   });
   res.send("Table created");
 });
+
 app.post("/add-customer", (req, res) => {
   const { name, address, company } = req.body;
 
@@ -94,6 +95,7 @@ app.post("/add-customer", (req, res) => {
     res.json("Recieved");
   });
 });
+
 app.get("/customer", (req, res) => {
   let customers = `SELECT * FROM customer JOIN address JOIN company ON customer.customer_id = address.customer_id AND customer.customer_id = company.customer_id`;
   db.query(customers, (err, results, fields) => {
