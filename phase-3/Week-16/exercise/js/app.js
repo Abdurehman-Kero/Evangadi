@@ -1,6 +1,8 @@
 const express = require("express");
 const mysql = require("mysql2");
 const app = express();
+const cors = require("cors")
+app.use(cors());
 
 const db = mysql.createConnection({
   host: "localhost",
@@ -34,11 +36,10 @@ app.get("/install", (req, res) => {
   PRIMARY KEY (Description_id),
   FOREIGN KEY (product_id) REFERENCES Products(product_id)
 )`;
-
   let productPrice = `CREATE TABLE IF NOT EXISTS Product_Price (
   price_id INT AUTO_INCREMENT,
   product_id INT NOT NULL,
-  starting_price INT NOT NULL,
+  starting_price VARCHAR(512) NOT NULL,
   price_range VARCHAR(512) NOT NULL,
   PRIMARY KEY (price_id),
   FOREIGN KEY (product_id) REFERENCES Products(product_id)
@@ -83,13 +84,11 @@ app.get("/install", (req, res) => {
 });
 
 // -----------------------------------------
-// MIDDLEWARE
+// Middle ware to extract info from the frontend that are sent through json
+app.use(express.json());
 // -----------------------------------------
-
-app.use(express.urlencoded({ extended: true }));
-
-// -----------------------------------------
-
+ 
+ 
 app.post("/add-product", (req, res) => {
   const {
     product_name,
@@ -191,3 +190,14 @@ app.listen(3000, (err) => {
   if (err) console.log(err);
   else console.log("Server is running on: http://localhost:3000/");
 });
+
+
+
+
+
+
+
+
+
+
+

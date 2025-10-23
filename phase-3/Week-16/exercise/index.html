@@ -4,18 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Add Iphone</title>
-    <style>
-      body {
-        margin: 0 auto;
-        text-align: center;
-        font-size: 15px;
-      }
-    </style>
+     <link rel="stylesheet" href="./style.css">
   </head>
 
   <body>
-    <h1>Add iPhone</h1>
-    <form action="http://localhost:3000/add-product" method="post">
+    <!-- <h1>Add iPhone</h1> -->
+    <form id="form">
       <div>
         <h2>Add Products</h2>
         <label for="productname">Product-name </label>
@@ -33,7 +27,7 @@
         <br />
         <textarea
           name="product_brief_description"
-          id=""
+          id="product_brief_description"
           cols="30"
           rows="10"
         ></textarea>
@@ -42,7 +36,7 @@
         <br />
         <textarea
           name="product_description"
-          id=""
+          id="product_description"
           cols="30"
           rows="10"
         ></textarea>
@@ -100,6 +94,7 @@
 
       <br /><br />
       <input type="submit" value="Add product" />
+      <script src="./js/script.js"></script>
     </form>
   </body>
 </html>
