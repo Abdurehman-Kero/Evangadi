@@ -1,7 +1,7 @@
 const express = require("express");
 const mysql = require("mysql2");
 const app = express();
-const cors = require("cors")
+const cors = require("cors");
 app.use(cors());
 
 const db = mysql.createConnection({
@@ -87,8 +87,7 @@ app.get("/install", (req, res) => {
 // Middle ware to extract info from the frontend that are sent through json
 app.use(express.json());
 // -----------------------------------------
- 
- 
+
 app.post("/add-product", (req, res) => {
   const {
     product_name,
@@ -183,6 +182,16 @@ app.get("/", (req, res) => {
   res.send("Up and running!");
 });
 
+// Selection part
+
+app.get("/get-product", (req, res) => {
+  let selectProduct = `SELECT products.product_id as id, products.product_name AS product, product_price.starting_price AS price FROM products inner join product_price ON products.product_id = product_price.product_id`;
+  db.query(selectProduct, (err, results, fields) => {
+    if (err) console.log(`error ${err}`);
+    res.send(results);
+    console.log(results);
+  });
+});
 // -----------------------------------------
 // SERVER START
 // -----------------------------------------
@@ -190,14 +199,3 @@ app.listen(3000, (err) => {
   if (err) console.log(err);
   else console.log("Server is running on: http://localhost:3000/");
 });
-
-
-
-
-
-
-
-
-
-
-
